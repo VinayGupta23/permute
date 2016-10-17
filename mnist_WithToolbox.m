@@ -1,7 +1,7 @@
 %% Load datasets
 
-trainData = csvread('train.csv', 1, 0);
-% testData = csvread('test.csv', 1, 0);
+trainData = csvread('Data/train.csv', 1, 0);
+% testData = csvread('Data/test.csv', 1, 0);
 
 trainInd = floor(size(trainData,1)*0.8);
 

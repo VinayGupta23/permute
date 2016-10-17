@@ -14,7 +14,7 @@ num_labels = 10;          % 10 labels, from 1 to 10
 
 % Load Training Data
 fprintf('Loading and Visualizing Data ...\n')
-trainData = csvread('train.csv', 1, 0);
+trainData = csvread('Data/train.csv', 1, 0);
 
 trainInd = floor(size(trainData,1)*0.8);
 
