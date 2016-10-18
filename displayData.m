@@ -1,10 +1,8 @@
 function [h, display_array] = displayData(X, example_width)
-%DISPLAYDATA Display 2D data in a nice grid
-%   [h, display_array] = DISPLAYDATA(X, example_width) displays 2D data
-%   stored in X in a nice grid. It returns the figure handle h and the 
-%   displayed array if requested.
+%DISPLAYDATA Display 2D data in a grid
+%   This function displays 2D data stored in X in a nice grid. 
+%   It returns the figure handle h and the displayed array.
 
-% Set example_width automatically if not passed in
 if ~exist('example_width', 'var') || isempty(example_width) 
 	example_width = round(sqrt(size(X, 2)));
 end
@@ -13,7 +11,7 @@ end
 colormap(gray);
 
 % Compute rows, cols
-[m n] = size(X);
+[m, n] = size(X);
 example_height = (n / example_width);
 
 % Compute number of items to display

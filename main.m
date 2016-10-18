@@ -38,7 +38,7 @@ ytest = trainData(trainInd+1:end, 1);
 ytest(ytest == 0) = 10;
 
 % Visualize some digits
-% TODO.
+displayData(X(1:25,:));
 
 
 %% Initialize network weights
