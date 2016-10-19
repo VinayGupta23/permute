@@ -107,7 +107,7 @@ predTrain = predict(Theta1, Theta2, X);
 predTest = predict(Theta1, Theta2, Xtest);
 
 fprintf('\nTraining Set Accuracy: %.2f%%\n', mean(double(predTrain == y)) * 100);
-fprintf('Training Set Accuracy: %.2f%%\n', mean(double(predTest == ytest)) * 100);
+fprintf('Testing Set Accuracy: %.2f%%\n', mean(double(predTest == ytest)) * 100);
 
 
 %% Image pre-processing steps - Courtesy Rakshith [To be refactored]
