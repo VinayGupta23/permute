@@ -67,7 +67,6 @@ end
 argstr = [argstr, ')'];
 
 if max(size(length)) == 2, red=length(2); length=length(1); else red=1; end
-S=['Iteration '];
 
 i = 0;                                            % zero the run length counter
 ls_failed = 0;                             % no previous line search has failed
@@ -144,7 +143,7 @@ while i < abs(length)                                      % while not finished
 
   if success                                         % if line search succeeded
     f1 = f2; fX = [fX' f1]';
-    fprintf('%s %4i | Cost: %4.6e\r', S, i, f1);
+    fprintf('Iteration %4i completed.\r', i);
     s = (df2'*df2-df1'*df2)/(df1'*df1)*s - df2;      % Polack-Ribiere direction
     tmp = df1; df1 = df2; df2 = tmp;                         % swap derivatives
     d2 = df1'*s;
