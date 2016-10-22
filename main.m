@@ -11,7 +11,7 @@
 %% Setup the parameters of network
 
 input_layer_size  = 28*28;
-hidden_layer_size = 20;
+hidden_layer_size = 100;
 num_labels = 10; % There are 10 digits (0-9)
 % The digit "0" will be mapped to label 10, since MATLAB indexing starts
 % at 1.
@@ -72,7 +72,9 @@ costFunction = @(p) nnCostFunction(p, ...
                                    hidden_layer_size, ...
                                    num_labels, X, y, lambda);
 % The training phase
+tic;
 [nn_params, cost] = fmincg(costFunction, initial_nn_params, options);
+toc;
 
 % Obtain Theta1 and Theta2 back from nn_params that were vectorized
 Theta1 = reshape(nn_params(1:hidden_layer_size * (input_layer_size + 1)), ...
@@ -80,7 +82,7 @@ Theta1 = reshape(nn_params(1:hidden_layer_size * (input_layer_size + 1)), ...
 Theta2 = reshape(nn_params((1 + (hidden_layer_size * (input_layer_size + 1))):end), ...
                  num_labels, (hidden_layer_size + 1));
 
-fprintf('Program paused. Press enter to continue.\n');
+fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
 
 
