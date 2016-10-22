@@ -1,5 +1,6 @@
 # MATLAB Auto-save files
 *.asv
 
-# Data files in folder
-Data
+# MNIST dataset in folder "data" [Wi-Fi upload issues]
+data/train.csv
+data/test.csv

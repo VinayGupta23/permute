@@ -22,7 +22,7 @@ num_labels = 10; % There are 10 digits (0-9)
 
 % Load Training Data
 fprintf('Loading and Visualizing Data ...\n')
-trainData = csvread('Data/train.csv', 1, 0);
+trainData = csvread('data/train.csv', 1, 0);
 
 % Keep first 80% of data for training, and last 20% for testing.
 % NOTE: The digits are already randomly ordered, so it is not done
@@ -116,7 +116,7 @@ fprintf('Testing Set Accuracy: %.2f%%\n', mean(double(predTest == ytest)) * 100)
 imageIDs = 1:5;
 figure;
 for i = 1:length(imageIDs)
-    imgPath = ['Data/img' num2str(imageIDs(i)) '.jpg'];
+    imgPath = ['data/img' num2str(imageIDs(i)) '.jpg'];
     img = imread(imgPath);
     imgInfo = imfinfo(imgPath);
     if imgInfo.Orientation == 6
