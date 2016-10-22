@@ -110,13 +110,25 @@ fprintf('\nTraining Set Accuracy: %.2f%%\n', mean(double(predTrain == y)) * 100)
 fprintf('Testing Set Accuracy: %.2f%%\n', mean(double(predTest == ytest)) * 100);
 
 
-%% Image pre-processing steps - Courtesy Rakshith [To be refactored]
-% It seems even the input data is mirrored by 90 degrees, check.
+%% Test on some user-sketched images
+% Save images in the Data folder with name "imgX.jpg", where X is image ID.
 
-% three = img2(:,:,1);
-% three2 = three < 50;
-% three4 = imresize(permute(three2, [2 1]), [28, 28]);
-
+imageIDs = 1:5;
+figure;
+for i = 1:length(imageIDs)
+    imgPath = ['Data/img' num2str(imageIDs(i)) '.jpg'];
+    img = imread(imgPath);
+    imgInfo = imfinfo(imgPath);
+    if imgInfo.Orientation == 6
+        img = imrotate(img, -90);
+    end
+    subplot(2, length(imageIDs), i);
+    image(img); axis equal;
+    subplot(2, length(imageIDs), i+length(imageIDs));
+    imProc = loadUserImage(imgPath);
+    imagesc(imProc); axis equal;
+    text(6, 32, sprintf('Predicted: %d', predict(Theta1, Theta2, imProc(:)')));
+end
 
 %% References
 
